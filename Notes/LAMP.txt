@@ -1,0 +1,11 @@
+The LAMP stack consists of four technologies...
+
+	- Linux
+	- Apache
+	- MySQL
+	- PHP
+
+Linux is the operating system of the computer that the web server is running on.
+Apache is the web server itself.
+MySQL is the database were important information can be stored and retrieved on the website.
+PHP is the programming language for the website to communicate with the database and webpage.

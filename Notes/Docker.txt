@@ -1,0 +1,12 @@
+Docker is software that allows us to put our entire project into what is referred to as a 
+"container". These containers ensure that software can be run across many machines as all of these
+machines will end up running the same container which are all setup the same way ensuring the
+software will run accordingly across these different machines.
+
+To start the docker container, naviagte to the "Docker" directory in the projects root directory
+and type the following command...
+
+	docker-compose up
+
+From here the docker container will be running and you can access it via the IP address given
+to you when you run the previous command.

@@ -1,0 +1,18 @@
+THE FOLLOWING COMMANDS ARE FOR UBUNTU OPERATING SYSTEM, THE COMMANDS MIGHT BE SLIGHTLY DIFFERENT
+DEPENDING ON YOUR OPERATING SYSTEM
+
+1. Downloading required software
+
+	sudo apt install apache2
+		-this will download apache
+
+	sudo apt install mysql
+	sudo apt install mysql-server
+		-downloads mysql database
+
+2. Start/Check apache webserver
+
+	sudo systemctl start apache2
+	sudo systemctl stop apache2
+	sudo systemcyl status apache2
+		-basic commands to start, stop, and check the status of the apache2 webserver
