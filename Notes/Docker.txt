@@ -10,3 +10,26 @@ and type the following command...
 
 From here the docker container will be running and you can access it via the IP address given
 to you when you run the previous command.
+
+When you want to shutdown the docker container you can just press ctrl+c, but if this does not
+work then you can also run the following command...
+
+	sudo systemctl restart docker.socket docker.service
+
+To check if any docker conatiners are currently running rou can type the following command
+
+	docker ps
+
+I have also noticed repeatedly that as I shut down the docker container and attempt to restart
+it, I receive an error message that states the certain ports are already in use. I am not sure
+if I am shutting down the containers incorrectly or why this error is occuring. But in order to get
+around this error message we can just kill the processes that are utilizing these ports. For starters
+see which port docker is complaining about, then run the following command to see what process is
+utilizing this port...
+
+	sudo lsof -i:PORTNUMBER
+
+This will provide some output on which processes are using this port, then you will need to get the
+process idea from this output and run the following command to kill it...
+
+	sudo kill PID
