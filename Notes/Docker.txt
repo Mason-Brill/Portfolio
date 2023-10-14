@@ -27,9 +27,18 @@ around this error message we can just kill the processes that are utilizing thes
 see which port docker is complaining about, then run the following command to see what process is
 utilizing this port...
 
-	sudo lsof -i:PORTNUMBER
+	sudo lsof -i :PORTNUMBER
 
 This will provide some output on which processes are using this port, then you will need to get the
 process idea from this output and run the following command to kill it...
 
 	sudo kill PID
+
+Another useful command when you run some of the ones
+from above is to run the following...
+
+	docker container prune
+
+This will help clean up the forced shutdown of the docker
+container by releasing any ports that were being used
+by it.
