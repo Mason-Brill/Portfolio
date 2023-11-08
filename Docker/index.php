@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="./index.css">
+<h1 class="intro">Hello, I am Mason Brill</h1>
 
 <?php
 $connect = mysqli_connect(
