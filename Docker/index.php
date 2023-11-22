@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <head>
 	<link rel="stylesheet" href="./index.css">
-
-	<h1 class="intro">Hello, I am Mason Brill</h1>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
 </head>
 <body>
 
 	<img class="background" src="background.svg" alt="space"/>
+
+	<h1 class="intro">Welcome!</h1>
+
+	<div class="welcome-container">
+	  <h1>Hello, I am Mason Brill</h1>
+	  <p>blah blah blah</p>
+	</div>
+
 	<?php
 	$connect = mysqli_connect(
 		'db',

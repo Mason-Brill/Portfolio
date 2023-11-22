@@ -1,8 +1,40 @@
+@keyframes intro {
+	from{
+		opacity: 0%;
+		bottom: 40px;
+	}
+	to{
+		opacity: 100%;
+		bottom: 0px;
+	}
+}
+
 body, html {
 	margin: 0%;
 	padding: 0%;
 	color: white;
 	z-index: 0;
+}
+
+.intro {
+	position: relative;
+	animation-name: intro;
+	animation-duration: 3s;
+	text-align: center;
+	font-family: "Nunito";
+	font-size: 72px;
+	margin-bottom: 0%;
+	margin-top: 2%;
+}
+
+.welcome-container {
+	display: flex;
+	justify-content: center;
+	gap: 50px;
+}
+
+.welcome-item {
+	
 }
 
 .background {
@@ -12,8 +44,4 @@ body, html {
 	width: 100vw;
 	height: 100vh;
 	z-index: -1;
-}
-
-.intro {
-	display: flex;
 }
