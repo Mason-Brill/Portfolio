@@ -10,8 +10,14 @@
 	<h1 class="intro">Welcome!</h1>
 
 	<div class="welcome-container">
-	  <h1>Hello, I am Mason Brill</h1>
-	  <p>blah blah blah</p>
+	  <div class="welcome-left">
+	    <h1 class="heading-left">I am Mason Brill</h1>
+	    <p>
+	        I'm a versatile front-end engineer ready to
+		complete any task. 
+	    </p>
+	  </div>
+	  <img src="./Mason.JPEG" class="me"/>
 	</div>
 
 	<?php
@@ -33,8 +39,3 @@
 	}
 	?>
 </body>
-<h1>a</h1>
-<h1>a</h1>
-<h1>a</h1>
-<h1>a</h1>
-<h1>a</h1>

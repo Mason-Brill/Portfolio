@@ -31,10 +31,25 @@ body, html {
 	display: flex;
 	justify-content: center;
 	gap: 50px;
+	margin-top: 2%;
 }
 
 .welcome-item {
 	
+}
+
+.welcome-left {
+	display: flex;
+	flex-direction: column;
+}
+
+.heading-left {
+	text-align: center;
+}
+
+.me {
+	width: 20vw;
+	height: 40vh;
 }
 
 .background {
@@ -45,3 +60,4 @@ body, html {
 	height: 100vh;
 	z-index: -1;
 }
+

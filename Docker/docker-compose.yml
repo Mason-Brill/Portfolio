@@ -7,11 +7,14 @@ services:
       MYSQL_USER: lamp_docker
       MYSQL_PASSWORD: password
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_HOST: '%'
     volumes:
       - ./db:/docker-entrypoint-initdb.d
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - lamp-docker
+      lamp-docker:
+        ipv4_address: 172.19.0.2
+
   www:
     depends_on:
       - db
@@ -21,21 +24,29 @@ services:
     volumes:
       - "./:/var/www/html"
     ports:
-      - 8080:80
-      - 443:443
+      - "8080:80"
+      - "443:443"
     networks:
-      - lamp-docker
+      lamp-docker:
+        ipv4_address: 172.19.0.3  # Specify the desired IP address for www container
+
   phpmyadmin:
     depends_on:
       - db
     image: phpmyadmin/phpmyadmin
     ports:
-      - 8001:80
+      - "8001:80"
     environment:
       - PMA_HOST=db
       - PMA_PORT=3306
     networks:
-      - lamp-docker
+      lamp-docker:
+        ipv4_address: 172.19.0.4
+
 networks:
   lamp-docker:
     driver: bridge
+    ipam:
+      driver: default
+      config:
+          - subnet: 172.19.0.0/24
