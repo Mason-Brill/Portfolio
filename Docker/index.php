@@ -2,6 +2,7 @@
 <head>
 	<link rel="stylesheet" href="./index.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 </head>
 <body>
 
@@ -12,9 +13,23 @@
 	<div class="welcome-container">
 	  <div class="welcome-left">
 	    <h1 class="heading-left">I am Mason Brill</h1>
-	    <p>
-	        I'm a versatile front-end engineer ready to
-		complete any task. 
+	    <p class="text-left">
+		I'm a versatile front-end engineer ready to
+		complete any task. I have relavent expierence with
+		the MERN and LAMP web stacks along with related
+		technologies. Ever since I was young I have always
+		had a curiosity for technology. I always wanted to
+		know what was going on behind the scenes. What made
+		computers tick? How was I able to play incredible
+		video games? How can these computers display graphics
+		on the screen? These are the questions I asked myself
+		and was determined to find the answer to. This is
+		what lead me to my pursuit of a degree in computer
+		science. I also took personal endevours to discover
+		topics I wanted to find answers to. Now I can
+		confidently say I am finding those answers and
+		the journey will never stop in this ever-changing
+		field.
 	    </p>
 	  </div>
 	  <img src="./Mason.JPEG" class="me"/>
@@ -30,12 +45,24 @@
 
 	$query = 'SELECT * FROM projects';
 	$result = mysqli_query($connect, $query);
+	$counter = 0;
 
 	while($record = mysqli_fetch_assoc($result))
 	{
-		echo '<h2>'.$record['title'].'</h2>';
-		echo '<h3>'.$record['skills'].'</h3>';
-		echo '<p>'.$record['description'].'</p>';
+		echo '<div class="extra-space"></div>';
+
+		// Determine the CSS class based on the counter
+		$cssClass = ($counter % 2 == 0) ? 'even-class' : 'odd-class';
+
+		// Output the container with the dynamic CSS class
+		echo '<div class="' . $cssClass . '">';
+			echo '<h2 class="project-title">' . $record['title'] . '</h2>';
+			echo '<h3 class="skills">' . $record['skills'] . '</h3>';
+			echo '<p>' . $record['description'] . '</p>';
+		echo '</div>';
+	
+		// Increment the counter for the next iteration
+		$counter++;
 	}
 	?>
 </body>
