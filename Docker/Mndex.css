@@ -66,8 +66,18 @@ body, html {
 	animation-duration: 3s;
 }
 
+.even-image {
+	width: 40vw;
+	height: 40vh;
+}
+
+.odd-image {
+	width: 40vw;
+	height: 40vh;
+}
+
 .me {
-	width: 25vw;
+	width: 40vw;
 	height: 40vh;
 	animation-name: intro;
 	animation-duration: 3s;
@@ -79,22 +89,28 @@ body, html {
 
 .even-class {
 	display: flex;
-	margin-left: 45vw;
-	margin-right: 10vw;
+	margin-left: 5vw;
+	margin-right: 5vw;
 	gap: 2vw;
 }
 
 .odd-class {
 	display: flex;
-	margin-left: 10vw;
-	margin-right: 45vw;
+	margin-left: 5vw;
+	margin-right: 5vw;
 	gap: 2vw;
 }
 
 .skills {
 	white-space: pre-wrap;
   	flex-grow: 1;
-  	min-width: 100px;
+  	min-width: 10vw;
+}
+
+.desc {
+	white-space: pre-wrap;
+  	flex-grow: 1;
+  	max-width: 30vw;
 }
 
 .background {

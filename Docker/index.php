@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-	<link rel="stylesheet" href="./index.css">
+	<link rel="stylesheet" href="./Mndex.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 </head>
@@ -32,7 +32,7 @@
 		field.
 	    </p>
 	  </div>
-	  <img src="./Mason.JPEG" class="me"/>
+	  <img src="./images/Mason.Webp" class="me"/>
 	</div>
 
 	<?php
@@ -56,9 +56,17 @@
 
 		// Output the container with the dynamic CSS class
 		echo '<div class="' . $cssClass . '">';
+			//displaying respective picture on left side of screen if even class
+			if($cssClass == 'even-class'){
+					echo'<img src="./images/'. $counter . '.webp" class="even-image"/>';
+			}
 			echo '<h2 class="project-title">' . $record['title'] . '</h2>';
 			echo '<h3 class="skills">' . $record['skills'] . '</h3>';
-			echo '<p>' . $record['description'] . '</p>';
+			echo '<p class="desc">' . $record['description'] . '</p>';
+			
+			if($cssClass == 'odd-class'){
+				echo'<img src="./images/'. $counter . '.webp" class="odd-image"/>';
+			}
 		echo '</div>';
 	
 		// Increment the counter for the next iteration
