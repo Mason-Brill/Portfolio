@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-	<link rel="stylesheet" href="./Mndex.css">
+	<link rel="stylesheet" href="./Zndex.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 </head>
@@ -33,6 +33,17 @@
 	    </p>
 	  </div>
 	  <img src="./images/Mason.Webp" class="me"/>
+	  <div class="contact-container">
+		<h1 class="heading-left">Contact Me</h1>
+		    <p class="Email">
+			mason.brill@spartans.ut.edu
+			masonjamesbrill@yahoo.com
+			</p>
+		<h1 class="heading-left">GitHub</h1>
+		    <p class="Email">
+			<a href="https://github.com/Mason-Brill" target="_blank">https://github.com/Mason-Brill</a>
+			</p>
+	  </div>
 	</div>
 
 	<?php
@@ -73,4 +84,5 @@
 		$counter++;
 	}
 	?>
+	<div class="extra-space"></div>
 </body>

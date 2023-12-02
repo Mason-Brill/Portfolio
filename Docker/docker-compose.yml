@@ -5,9 +5,7 @@ services:
     environment:
       MYSQL_DATABASE: lamp_docker
       MYSQL_USER: lamp_docker
-      MYSQL_PASSWORD: password
-      MYSQL_ALLOW_EMPTY_PASSWORD: 1
-      MYSQL_ROOT_HOST: '%'
+      MYSQL_PASSWORD: PixelDoctor123!
     volumes:
       - ./db:/docker-entrypoint-initdb.d
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql

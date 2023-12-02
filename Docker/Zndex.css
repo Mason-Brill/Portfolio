@@ -33,8 +33,23 @@ body, html {
 	justify-content: center;
 	animation-name: intro;
 	animation-duration: 3s;
-	gap: 50px;
+	gap: 2vw;
 	margin-top: 2%;
+	margin-left: 5vw;
+	margin-right: 5vw;
+}
+
+.contact-container {
+	display: flex;
+	flex-direction: column;
+	gap: 1vh;
+}
+
+.Email {
+	text-align: center;
+	margin: 0px;
+	margin-block-start: 0%;
+    margin-block-end: 0%;
 }
 
 .welcome-item {
@@ -111,6 +126,10 @@ body, html {
 	white-space: pre-wrap;
   	flex-grow: 1;
   	max-width: 30vw;
+}
+
+.extra-space {
+	margin-top: 5vh;
 }
 
 .background {
