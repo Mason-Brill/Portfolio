@@ -54,6 +54,12 @@
 		'lamp_docker'
 	);
 
+	if (!$connect) {
+		die('Connect Error: ' . mysqli_connect_error());
+	} else {
+		echo 'Connected successfully';
+	}
+
 	$query = 'SELECT * FROM projects';
 	$result = mysqli_query($connect, $query);
 	$counter = 0;
