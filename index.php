@@ -48,10 +48,10 @@
 
 	<?php
 	$connect = mysqli_connect(
-		'db',
-		'lamp_docker',
-		'password',
-		'lamp_docker'
+		getenv('DB_HOST'),
+    	getenv('DB_USER'),
+    	getenv('DB_PASSWORD'),
+    	getenv('DB_DATABASE')
 	);
 
 	if (!$connect) {

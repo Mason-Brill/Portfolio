@@ -3,3 +3,9 @@ build:
     web: Dockerfile-www
     db: Dockerfile-db
     phpmyadmin: Dockerfile-phpmyadmin
+
+env:
+  DB_HOST: db
+  DB_USER: lamp_docker
+  DB_PASSWORD: PixelDoctor123!
+  DB_DATABASE: lamp_docker

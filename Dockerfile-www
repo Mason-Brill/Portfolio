@@ -9,4 +9,11 @@ COPY . /var/www/html
 # Set up Apache configuration
 COPY ./ports.conf /etc/apache2/ports.conf
 COPY ./apache.conf /etc/apache2/sites-enabled/000-default.conf
+
+# Set environment variables
+ENV DB_HOST=db
+ENV DB_USER=lamp_docker
+ENV DB_PASSWORD=PixelDoctor123!
+ENV DB_DATABASE=lamp_docker
+
 CMD apache2-foreground -DFOREGROUND -e info -D MPM=event
