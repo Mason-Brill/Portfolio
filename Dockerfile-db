@@ -9,3 +9,6 @@ ENV MYSQL_PASSWORD PixelDoctor123!
 # Copy SQL initialization script
 COPY ./db /docker-entrypoint-initdb.d
 COPY ./init.sql /docker-entrypoint-initdb.d/init.sql
+
+# Start MySQL server
+CMD ["mysqld"]
