@@ -5,7 +5,4 @@ build:
     phpmyadmin: Dockerfile-phpmyadmin
 
 env:
-  DB_HOST: db
-  DB_USER: lamp_docker
-  DB_PASSWORD: PixelDoctor123!
-  DB_DATABASE: lamp_docker
+  DATABASE_URL: mysql://lamp_docker:PixelDoctor123!@db:3306/lamp_docker
