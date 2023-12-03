@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-	<link rel="stylesheet" href="./Zndex.css">
+	<link rel="stylesheet" href="./index.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 </head>

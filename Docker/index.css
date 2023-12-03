@@ -17,6 +17,85 @@ body, html {
 	font-family: "Roboto";
 }
 
+.even-image {
+	width: 40vw;
+	height: 40vh;
+}
+
+.odd-image {
+	width: 40vw;
+	height: 40vh;
+}
+
+@media (max-width: 900px) {
+	.welcome-container {
+		flex-direction: column;
+		align-items: center;
+		margin: 0%;
+		min-width: 80vw;
+	}
+
+	.welcome-left {
+		justify-content: center;
+		align-items: center; 
+		flex-direction: column;
+		text-align: center;
+		margin: 0%;
+		min-width: 80vw;
+	}
+	.heading-left {
+		justify-content: center;
+		text-align: center;
+		margin: 0%;
+		min-width: 80vw;
+	}
+
+	.text-left {
+		justify-content: center;
+		text-align: center;
+		margin: 0%;
+	}
+	.even-class {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-left: 5vw;
+		margin-right: 5vw;
+		gap: 2vw;
+		margin: 0%;
+		min-width: 80vw;
+	}
+	.even-image{ 
+		width: 90vw;
+		height: 40vh;
+	}
+	.odd-image {
+		width: 90vw;
+		height: 40vh;
+	}
+	.odd-class {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-left: 5vw;
+		margin-right: 5vw;
+		gap: 2vw;
+		margin: 0%;
+		min-width: 80vw;
+	}
+	.skills {
+		white-space: pre-wrap;
+		flex-grow: 1;
+		min-width: 80vw;
+	}
+	
+	.desc {
+		white-space: pre-wrap;
+		flex-grow: 1;
+		min-width: 80vw;
+	}
+  }
+
 .intro {
 	position: relative;
 	animation-name: intro;
@@ -56,6 +135,8 @@ body, html {
 	margin-top: 0px;
 	animation-name: intro;
 	animation-duration: 3s;
+	min-width: 10vw;
+  	flex: 1;
 }
 
 .welcome-left {
@@ -81,19 +162,9 @@ body, html {
 	animation-duration: 3s;
 }
 
-.even-image {
-	width: 40vw;
-	height: 40vh;
-}
-
-.odd-image {
-	width: 40vw;
-	height: 40vh;
-}
-
 .me {
-	width: 40vw;
-	height: 40vh;
+	width: 600px;
+	height: 300px;
 	animation-name: intro;
 	animation-duration: 3s;
 }
