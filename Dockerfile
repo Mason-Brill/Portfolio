@@ -3,7 +3,7 @@ FROM php:8.1.1-apache
 # Install the MySQL extension
 RUN docker-php-ext-install mysqli
 
-COPY index.php /var/www/html
+COPY . /var/www/html
 
 COPY ./init.sql /docker-entrypoint-initdb.d/init.sql
 COPY ./ports.conf /etc/apache2/ports.conf
