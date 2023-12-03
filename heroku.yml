@@ -1,5 +1,5 @@
 build:
   docker:
-    www: Dockerfile-www
+    wwb: Dockerfile-www
     db: Dockerfile-db
     phpmyadmin: Dockerfile-phpmyadmin
