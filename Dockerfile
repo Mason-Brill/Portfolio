@@ -7,3 +7,4 @@ CMD apache2-foreground -DFOREGROUND -e info -D MPM=event
 
 COPY ./init.sql /docker-entrypoint-initdb.d/init.sql
 COPY ./ports.conf /etc/apache2/ports.conf
+COPY ./apache.conf /etc/apache2/sites-enabled/000-default.conf
