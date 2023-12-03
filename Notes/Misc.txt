@@ -1,4 +1,0 @@
-Links to important resources...
-
-	Setting up a LAMP Stack from Scratch using Docker
-	 https://www.youtube.com/watch?v=zWyggxV51oQ
