@@ -3,6 +3,3 @@ build:
     web: Dockerfile-www
     db: Dockerfile-db
     phpmyadmin: Dockerfile-phpmyadmin
-
-env:
-  DATABASE_URL: mysql://lamp_docker:PixelDoctor123!@db:3306/lamp_docker
