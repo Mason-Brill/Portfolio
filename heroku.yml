@@ -1,5 +1,0 @@
-build:
-  docker:
-    web: Dockerfile.php  # Use the Dockerfile for the www service in docker-compose.yml
-    db: Dockerfile.mysql  # Use the Dockerfile for the db service in docker-compose.yml
-    phpmyadmin: Dockerfile.phpmyadmin  # Use the Dockerfile for the phpmyadmin service in docker-compose.yml
