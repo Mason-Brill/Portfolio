@@ -1,17 +1,17 @@
 build:
   docker:
     db:
-    image: mysql:latest
-    environment:
-      MYSQL_DATABASE: lamp_docker
-      MYSQL_USER: lamp_docker
-      MYSQL_PASSWORD: PixelDoctor123!
-    volumes:
-      - ./db:/docker-entrypoint-initdb.d
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-    networks:
-      lamp-docker:
-        ipv4_address: 172.19.0.2
+      image: mysql:latest
+      environment:
+        MYSQL_DATABASE: lamp_docker
+        MYSQL_USER: lamp_docker
+        MYSQL_PASSWORD: PixelDoctor123!
+      volumes:
+        - ./db:/docker-entrypoint-initdb.d
+        - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      networks:
+        lamp-docker:
+          ipv4_address: 172.19.0.2
 
     www:
       depends_on:
