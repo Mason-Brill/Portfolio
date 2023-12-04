@@ -48,8 +48,8 @@
 
 	<?php
 
-	// Sleep for 10 seconds (or adjust as needed)
-	sleep(10);
+	// Sleep for 2 seconds (or adjust as needed)
+	sleep(2);
 
 	// Get the database URL from the environment variable
 	$databaseUrl = getenv("JAWSDB_URL");
