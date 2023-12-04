@@ -73,45 +73,60 @@
 		echo 'Connected successfully';
 	}
 
-	$checkTableQuery = 'SHOW TABLES LIKE "projects"';
-	$result = $mysqli->query($checkTableQuery);
+	// Query to check if the "projects" table exists
+$checkTableQuery = 'SHOW TABLES LIKE "projects"';
+$result = $mysqli->query($checkTableQuery);
 
-	if ($result->num_rows > 0) {
-		echo 'Table "projects" exists.';
-	} else {
-		echo 'Table "projects" does not exist.';
-	}
+if ($result->num_rows > 0) {
+    echo 'Table "projects" exists.<br>';
 
-	while ($record = mysqli_fetch_assoc($result)) {
-		echo '<div class="extra-space"></div>';
+    // Query to fetch all records from the "projects" table
+    $query = 'SELECT * FROM projects';
+    $result = $mysqli->query($query);
 
-		// Iterate through all indexes in $record
-		foreach ($record as $key => $value) {
-			echo $key . ': ' . $value . '<br>';
-		
+    // Check if records were fetched successfully
+    if ($result) {
+        echo 'Records fetched successfully.<br>';
 
-		// Determine the CSS class based on the counter
-		$cssClass = ($counter % 2 == 0) ? 'even-class' : 'odd-class';
+        // Iterate through all records
+        while ($record = $result->fetch_assoc()) {
+            echo '<div class="extra-space"></div>';
+            
+            // Iterate through all indexes in $record
+            foreach ($record as $key => $value) {
+                echo $key . ': ' . $value . '<br>';
+            }
 
-		// Output the container with the dynamic CSS class
-		echo '<div class="' . $cssClass . '">';
-		//displaying respective picture on left side of screen if even class
-		if ($cssClass == 'even-class') {
-			echo '<img src="./images/' . $counter . '.webp" class="even-image"/>';
-		}
-		echo '<h2 class="project-title">' . $value['title'] . '</h2>';
-		echo '<h3 class="skills">' . $record['skills'] . '</h3>';
-		echo '<p class="desc">' . $record['description'] . '</p>';
+            // Determine the CSS class based on the counter
+            $cssClass = ($counter % 2 == 0) ? 'even-class' : 'odd-class';
 
-		if ($cssClass == 'odd-class') {
-			echo '<img src="./images/' . $counter . '.webp" class="odd-image"/>';
-		}
-		echo '</div>';
+            // Output the container with the dynamic CSS class
+            echo '<div class="' . $cssClass . '">';
+            // Displaying respective picture on the left side of the screen if even class
+            if ($cssClass == 'even-class') {
+                echo '<img src="./images/' . $counter . '.webp" class="even-image"/>';
+            }
+            echo '<h2 class="project-title">' . $record['title'] . '</h2>';
+            echo '<h3 class="skills">' . $record['skills'] . '</h3>';
+            echo '<p class="desc">' . $record['description'] . '</p>';
 
-		// Increment the counter for the next iteration
-		$counter++;
-		}
-	}
+            if ($cssClass == 'odd-class') {
+                echo '<img src="./images/' . $counter . '.webp" class="odd-image"/>';
+            }
+            echo '</div>';
+
+            // Increment the counter for the next iteration
+            $counter++;
+        }
+    } else {
+        echo 'Error fetching records: ' . $mysqli->error;
+    }
+} else {
+    echo 'Table "projects" does not exist.';
+}
+
+// Close the database connection
+$mysqli->close();
 
 	?>
 	<div class="extra-space"></div>
