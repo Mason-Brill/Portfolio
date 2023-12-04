@@ -69,7 +69,7 @@
 	}
 
 	$query = 'SELECT * FROM projects';
-	$result = mysqli_query($connect, $query);
+	$result = $mysqli->query($query);
 	$counter = 0;
 
 	while($record = mysqli_fetch_assoc($result))
