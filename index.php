@@ -67,15 +67,15 @@
 	$result = $mysqli->query($query);
 	$counter = 0;
 
-	if ($mysqli->connect_error) {
-		die('Connect Error: ' . $mysqli->connect_error);
-	} else {
-		echo 'Connected successfully';
-	}
+	// if ($mysqli->connect_error) {
+	// 	die('Connect Error: ' . $mysqli->connect_error);
+	// } else {
+	// 	echo 'Connected successfully';
+	// }
 
 	// Query to check if the "projects" table exists
-$checkTableQuery = 'SHOW TABLES LIKE "projects"';
-$result = $mysqli->query($checkTableQuery);
+	$checkTableQuery = 'SHOW TABLES LIKE "projects"';
+	$result = $mysqli->query($checkTableQuery);
 
 if ($result->num_rows > 0) {
     echo 'Table "projects" exists.<br>';
@@ -92,10 +92,10 @@ if ($result->num_rows > 0) {
         while ($record = $result->fetch_assoc()) {
             echo '<div class="extra-space"></div>';
             
-            // Iterate through all indexes in $record
-            foreach ($record as $key => $value) {
-                echo $key . ': ' . $value . '<br>';
-            }
+            // // Iterate through all indexes in $record
+            // foreach ($record as $key => $value) {
+            //     echo $key . ': ' . $value . '<br>';
+            // }
 
             // Determine the CSS class based on the counter
             $cssClass = ($counter % 2 == 0) ? 'even-class' : 'odd-class';
