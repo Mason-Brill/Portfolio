@@ -60,52 +60,27 @@
 	$pass = $dbUrl["pass"];
 	$dbname = substr($dbUrl["path"], 1);  // Remove leading slash
 
-	// Maximum number of attempts to check table existence
-	$maxAttempts = 30;
-	$attempts = 0;
-	$connected = false;
+	// Use these details to connect to the MySQL database
+	$mysqli = new mysqli($host, $user, $pass, $dbname);
 
-// Wait for the MySQL server to be ready
-while ($attempts < $maxAttempts) {
-		$mysqli = @new mysqli($host, $user, $pass);
+	$query = 'SELECT * FROM projects';
+	$result = $mysqli->query($query);
+	$counter = 0;
 
-		// Check if the connection was successful
-		if ($mysqli->connect_error) {
-			echo "Connection failed: " . $mysqli->connect_error;
-			sleep(1);
-			$attempts++;
-		} else {
-			echo "Connected to MySQL server successfully";
-			$connected = true;
-			break;
-		}
+	if ($mysqli->connect_error) {
+		die('Connect Error: ' . $mysqli->connect_error);
+	} else {
+		echo 'Connected successfully';
 	}
 
-	// Proceed if connected to MySQL server
-	if ($connected) {
-	// Wait for the "projects" table to be created
-    $attempts = 0;
-    while ($attempts < $maxAttempts) {
-        $mysqli->select_db($dbname); // Select the database
+	$checkTableQuery = 'SHOW TABLES LIKE "projects"';
+	$result = $mysqli->query($checkTableQuery);
 
-        // Check if the "projects" table exists
-        $checkTableQuery = 'SHOW TABLES LIKE "projects"';
-        $result = $mysqli->query($checkTableQuery);
-
-        if ($result->num_rows > 0) {
-            echo 'Table "projects" exists.';
-            break; // Exit the loop if the table exists
-        } else {
-            echo 'Table "projects" does not exist. Waiting...';
-            sleep(1);
-            $attempts++;
-        }
-    }
-
-    // Now you can proceed with your regular queries
-    $query = 'SELECT * FROM projects';
-    $result = $mysqli->query($query);
-    $counter = 0;
+	if ($result->num_rows > 0) {
+		echo 'Table "projects" exists.';
+	} else {
+		echo 'Table "projects" does not exist.';
+	}
 
 	while ($record = mysqli_fetch_assoc($result)) {
 		echo '<div class="extra-space"></div>';
@@ -130,11 +105,6 @@ while ($attempts < $maxAttempts) {
 
 		// Increment the counter for the next iteration
 		$counter++;
-	}
-		
-	$mysqli->close(); // Close the connection
-	} else {
-	echo 'Unable to connect to MySQL server. Exiting.';
 	}
 
 	?>
