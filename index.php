@@ -63,6 +63,10 @@
 	$mysqli = new mysqli($host, $user, $pass, $dbname);
 
 
+	$query = 'SELECT * FROM projects';
+	$result = $mysqli->query($query);
+	$counter = 0;
+
 	while($record = mysqli_fetch_assoc($result))
 	{
 		echo '<div class="extra-space"></div>';
