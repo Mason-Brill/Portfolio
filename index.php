@@ -32,7 +32,7 @@
 		field.
 	    </p>
 	  </div>
-	  <img src="./Mason.Webp" class="me"/>
+	  <img src="./images/Mason.Webp" class="me"/>
 	  <div class="contact-container">
 		<h1 class="heading-left">Contact Me</h1>
 		    <p class="Email">
