@@ -16,8 +16,11 @@ ENV MYSQL_ALLOW_EMPTY_PASSWORD 1
 ENV MYSQL_DATA_DIR /var/lib/mysql
 ENV MYSQL_INITDB_SKIP_TZINFO 1
 
+EXPOSE 3306
+
 # Use the entrypoint script provided by the official MySQL image
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 # Start MySQL server
-CMD ["mysqld", "--console"]
+CMD ["mysqld", "--console", "--init-file=/docker-entrypoint-initdb.d/init.sql"]
+

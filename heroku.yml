@@ -2,4 +2,3 @@ build:
   docker:
     db: Dockerfile.db
     web: Dockerfile.www
-    phpmyadmin: Dockerfile.phpmyadmin
