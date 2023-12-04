@@ -84,7 +84,11 @@
 
 	while ($record = mysqli_fetch_assoc($result)) {
 		echo '<div class="extra-space"></div>';
-		echo '<p>'. $record[0] . $record[1] .'<p>';
+
+		// Iterate through all indexes in $record
+		foreach ($record as $key => $value) {
+			echo $key . ': ' . $value . '<br>';
+		}
 
 		// Determine the CSS class based on the counter
 		$cssClass = ($counter % 2 == 0) ? 'even-class' : 'odd-class';
