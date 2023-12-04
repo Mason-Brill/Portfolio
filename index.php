@@ -99,7 +99,7 @@
 		if ($cssClass == 'even-class') {
 			echo '<img src="./images/' . $counter . '.webp" class="even-image"/>';
 		}
-		echo '<h2 class="project-title">' . $record['title'] . '</h2>';
+		echo '<h2 class="project-title">' . $record['projects']['title'] . '</h2>';
 		echo '<h3 class="skills">' . $record['skills'] . '</h3>';
 		echo '<p class="desc">' . $record['description'] . '</p>';
 
