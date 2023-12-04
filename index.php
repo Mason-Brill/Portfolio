@@ -67,30 +67,32 @@
 	$maxAttempts = 30;
 	$attempts = 0;
 
-	// Wait for MySQL to be ready
+	// Wait for the "projects" table to be created
 	while ($attempts < $maxAttempts) {
-		$mysqli = @new mysqli($host, $user, $pass, $dbname);
+    $mysqli = @new mysqli($host, $user, $pass, $dbname);
 
-		// Check if the connection was successful
-		if ($mysqli->connect_error) {
-			echo "Connection failed: " . $mysqli->connect_error;
-			sleep(1);
-			$attempts++;
-		} else {
-			echo "Connected successfully";
-			break;
-		}
-	}
+    // Check if the connection was successful
+    if ($mysqli->connect_error) {
+        echo "Connection failed: " . $mysqli->connect_error;
+        sleep(1);
+        $attempts++;
+    } else {
+        echo "Connected successfully";
 
-	// Check if the "projects" table exists
-	$checkTableQuery = 'SHOW TABLES LIKE "projects"';
-	$result = $mysqli->query($checkTableQuery);
+        // Check if the "projects" table exists
+        $checkTableQuery = 'SHOW TABLES LIKE "projects"';
+        $result = $mysqli->query($checkTableQuery);
 
-	if ($result->num_rows > 0) {
-		echo 'Table "projects" exists.';
-	} else {
-		echo 'Table "projects" does not exist.';
-	}
+        if ($result->num_rows > 0) {
+            echo 'Table "projects" exists.';
+            break; // Exit the loop if the table exists
+        } else {
+            echo 'Table "projects" does not exist. Waiting...';
+            sleep(1);
+            $attempts++;
+        }
+    }
+}
 
 	// Now you can proceed with your regular queries
 	$query = 'SELECT * FROM projects';
