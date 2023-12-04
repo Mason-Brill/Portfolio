@@ -78,7 +78,7 @@
 	$result = $mysqli->query($checkTableQuery);
 
 if ($result->num_rows > 0) {
-    echo 'Table "projects" exists.<br>';
+    // echo 'Table "projects" exists.<br>';
 
     // Query to fetch all records from the "projects" table
     $query = 'SELECT * FROM projects';
@@ -86,7 +86,7 @@ if ($result->num_rows > 0) {
 
     // Check if records were fetched successfully
     if ($result) {
-        echo 'Records fetched successfully.<br>';
+        // echo 'Records fetched successfully.<br>';
 
         // Iterate through all records
         while ($record = $result->fetch_assoc()) {
