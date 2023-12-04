@@ -61,12 +61,6 @@
 
 	// Use these details to connect to the MySQL database
 	$mysqli = new mysqli($host, $user, $pass, $dbname);
-	
-	if (!$connect) {
-		die('Connect Error: ' . mysqli_connect_error());
-	} else {
-		echo 'Connected successfully';
-	}
 
 	$query = 'SELECT * FROM projects';
 	$result = $mysqli->query($query);
