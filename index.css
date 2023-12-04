@@ -14,6 +14,17 @@
 	z-index: 0;
 }
 
+*:not(body, html, .background) {
+    z-index: 1;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(80,80,80);
+    z-index: -1;
+}
+
 body, html {
 	margin: 0%;
 	padding: 0%;
@@ -216,5 +227,5 @@ body, html {
 	bottom: 0%;
 	width: 100vw;
 	height: 100vh;
-	z-index: 1;
+	z-index: 0;
 }
