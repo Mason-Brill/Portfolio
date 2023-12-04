@@ -67,6 +67,12 @@
 	$result = $mysqli->query($query);
 	$counter = 0;
 
+	if ($mysqli->connect_error) {
+		die('Connect Error: ' . $mysqli->connect_error);
+	} else {
+		echo 'Connected successfully';
+	}
+
 	while($record = mysqli_fetch_assoc($result))
 	{
 		echo '<div class="extra-space"></div>';
