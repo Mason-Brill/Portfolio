@@ -48,9 +48,6 @@
 
 	<?php
 
-	// Sleep for 2 seconds (or adjust as needed)
-	sleep(2);
-
 	// Get the database URL from the environment variable
 	$databaseUrl = getenv("JAWSDB_URL");
 
@@ -63,21 +60,33 @@
 	$pass = $dbUrl["pass"];
 	$dbname = substr($dbUrl["path"], 1);  // Remove leading slash
 
-	// Maximum number of attempts to check MySQL availability
+	// Maximum number of attempts to check table existence
 	$maxAttempts = 30;
 	$attempts = 0;
+	$connected = false;
 
+// Wait for the MySQL server to be ready
+while ($attempts < $maxAttempts) {
+		$mysqli = @new mysqli($host, $user, $pass);
+
+		// Check if the connection was successful
+		if ($mysqli->connect_error) {
+			echo "Connection failed: " . $mysqli->connect_error;
+			sleep(1);
+			$attempts++;
+		} else {
+			echo "Connected to MySQL server successfully";
+			$connected = true;
+			break;
+		}
+	}
+
+	// Proceed if connected to MySQL server
+	if ($connected) {
 	// Wait for the "projects" table to be created
-	while ($attempts < $maxAttempts) {
-    $mysqli = @new mysqli($host, $user, $pass, $dbname);
-
-    // Check if the connection was successful
-    if ($mysqli->connect_error) {
-        echo "Connection failed: " . $mysqli->connect_error;
-        sleep(1);
-        $attempts++;
-    } else {
-        echo "Connected successfully";
+    $attempts = 0;
+    while ($attempts < $maxAttempts) {
+        $mysqli->select_db($dbname); // Select the database
 
         // Check if the "projects" table exists
         $checkTableQuery = 'SHOW TABLES LIKE "projects"';
@@ -92,12 +101,11 @@
             $attempts++;
         }
     }
-}
 
-	// Now you can proceed with your regular queries
-	$query = 'SELECT * FROM projects';
-	$result = $mysqli->query($query);
-	$counter = 0;
+    // Now you can proceed with your regular queries
+    $query = 'SELECT * FROM projects';
+    $result = $mysqli->query($query);
+    $counter = 0;
 
 	while ($record = mysqli_fetch_assoc($result)) {
 		echo '<div class="extra-space"></div>';
@@ -122,6 +130,11 @@
 
 		// Increment the counter for the next iteration
 		$counter++;
+	}
+		
+	$mysqli->close(); // Close the connection
+	} else {
+	echo 'Unable to connect to MySQL server. Exiting.';
 	}
 
 	?>
