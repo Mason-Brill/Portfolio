@@ -11,4 +11,4 @@ COPY ./db /docker-entrypoint-initdb.d
 COPY ./init.sql /docker-entrypoint-initdb.d/init.sql
 
 # Start MySQL server
-CMD ["mysqld"]
+CMD mysqld
