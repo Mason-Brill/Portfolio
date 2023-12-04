@@ -47,6 +47,8 @@
 	</div>
 
 	<?php
+
+	sleep(10)
 	// Get the database URL from the environment variable
 	$databaseUrl = getenv("JAWSDB_URL");
 
@@ -62,16 +64,25 @@
 	// Use these details to connect to the MySQL database
 	$mysqli = new mysqli($host, $user, $pass, $dbname);
 
-
 	$query = 'SELECT * FROM projects';
-	$result = mysqli_query($mysqli, $query); /////////////////
+	$result = $mysqli->query($query);
 	$counter = 0;
 
-if ($result->num_rows > 0) {
-    echo 'Table "projects" exists.';
-} else {
-    echo 'Table "projects" does not exist.';
-}
+	$maxAttempts = 10;
+	$attempts = 0;
+
+	// Keep trying until the table is found or maxAttempts is reached
+	while ($attempts < $maxAttempts) {
+		$result = mysqli_query($mysqli, 'SELECT 1 FROM projects LIMIT 1');
+
+		if ($result !== false) {
+			echo 'Table "projects" exists.';
+			break;
+		}
+
+		sleep(1); // Wait for 1 second before retrying
+		$attempts++;
+	}
 
 	while($record = mysqli_fetch_assoc($result))
 	{
