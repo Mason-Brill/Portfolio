@@ -6,4 +6,4 @@ ENV PMA_HOST=db
 ENV PMA_PORT=3306
 
 # Start phpMyAdmin server
-CMD apache2-foreground -DFOREGROUND
+CMD apache2-foreground -DFOREGROUND -e info -D MPM=event
