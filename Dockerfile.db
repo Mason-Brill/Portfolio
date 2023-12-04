@@ -1,14 +1,15 @@
 # Use the official MySQL image
 FROM mysql:latest
 
-# Copy SQL initialization script
-COPY ./db /docker-entrypoint-initdb.d
-COPY ./init.sql /docker-entrypoint-initdb.d/init.sql
-
 # Set environment variables
 ENV MYSQL_DATABASE lamp_docker
 ENV MYSQL_USER lamp_docker
 ENV MYSQL_PASSWORD PixelDoctor123!
+ENV MYSQL_DATA_DIR /var/lib/mysql
+
+# Copy SQL initialization script
+COPY ./db /docker-entrypoint-initdb.d
+COPY ./init.sql /docker-entrypoint-initdb.d/init.sql
 
 # Start MySQL server
 CMD mysqld --console
