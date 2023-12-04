@@ -64,17 +64,8 @@
 
 
 	$query = 'SELECT * FROM projects';
-	$result = $mysqli->query($query);
+	$result = mysqli_query($mysqli, $query); /////////////////
 	$counter = 0;
-
-if ($mysqli->connect_error) {
-	die('Connect Error: ' . $mysqli->connect_error);
-} else {
-	echo 'Connected successfully';
-}
-
-$checkTableQuery = 'SHOW TABLES LIKE "projects"';
-$result = $mysqli->query($checkTableQuery);
 
 if ($result->num_rows > 0) {
     echo 'Table "projects" exists.';
