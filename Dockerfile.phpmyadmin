@@ -8,5 +8,9 @@ ENV PMA_PORT=8080
 # Expose port 8080
 EXPOSE 8080
 
+# Configure Apache to use port 8080
+RUN sed -i 's/Listen 80/Listen 8080/' /etc/apache2/ports.conf \
+    && sed -i 's/VirtualHost \*:80/VirtualHost \*:8080/' /etc/apache2/sites-available/000-default.conf
+
 # Start phpMyAdmin server
 CMD apache2-foreground -DFOREGROUND -e info -D MPM=event
