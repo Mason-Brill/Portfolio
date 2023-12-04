@@ -12,5 +12,8 @@ ENV MYSQL_INITDB_SKIP_TZINFO 1
 COPY ./db /docker-entrypoint-initdb.d
 COPY ./init.sql /docker-entrypoint-initdb.d/init.sql
 
+# Use the entrypoint script provided by the official MySQL image
+ENTRYPOINT ["docker-entrypoint.sh"]
+
 # Start MySQL server
 CMD mysqld --console
