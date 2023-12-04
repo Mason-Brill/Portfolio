@@ -32,17 +32,6 @@ body, html {
     z-index: -1;
 }
 
-/* body, html {
-	margin: 0%;
-	padding: 0%;
-	color: white;
-	background-color: transparent;
-	z-index: 2;
-	font-family: "Roboto", sans-serif;
-	font-weight: 600;
-	font-style: normal;
-} */
-
 .even-image {
 	width: 40vw;
 	height: 40vh;
@@ -53,7 +42,7 @@ body, html {
 	height: 40vh;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 	.welcome-container {
 		flex-direction: column;
 		align-items: center;
