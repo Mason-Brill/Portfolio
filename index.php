@@ -37,8 +37,8 @@
 		echo "Image Path: $imagePath";
 		?>
 
-	  <img src="<?= __DIR__ ?>/images/Mason.Webp" class="me"/>
-	  
+	  <img src="https://masons-portfolio-ec4043d216a7.herokuapp.com/images/Mason.webp" class="me"/>
+
 	  <div class="contact-container">
 		<h1 class="heading-left">Contact Me</h1>
 		    <p class="Email">
