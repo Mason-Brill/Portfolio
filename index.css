@@ -14,7 +14,9 @@ body, html {
 	padding: 0%;
 	color: white;
 	z-index: 0;
-	font-family: "Roboto";
+	font-family: "Roboto", sans-serif;
+	font-weight: 600;
+	font-style: normal;
 }
 
 .even-image {
