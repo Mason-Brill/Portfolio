@@ -88,7 +88,7 @@
 		// Iterate through all indexes in $record
 		foreach ($record as $key => $value) {
 			echo $key . ': ' . $value . '<br>';
-		}
+		
 
 		// Determine the CSS class based on the counter
 		$cssClass = ($counter % 2 == 0) ? 'even-class' : 'odd-class';
@@ -99,7 +99,7 @@
 		if ($cssClass == 'even-class') {
 			echo '<img src="./images/' . $counter . '.webp" class="even-image"/>';
 		}
-		echo '<h2 class="project-title">' . $record['projects']['title'] . '</h2>';
+		echo '<h2 class="project-title">' . $value['title'] . '</h2>';
 		echo '<h3 class="skills">' . $record['skills'] . '</h3>';
 		echo '<p class="desc">' . $record['description'] . '</p>';
 
@@ -110,6 +110,7 @@
 
 		// Increment the counter for the next iteration
 		$counter++;
+		}
 	}
 
 	?>
