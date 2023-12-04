@@ -48,6 +48,9 @@
 
 	<?php
 
+	// Sleep for 10 seconds (or adjust as needed)
+	sleep(10);
+
 	// Get the database URL from the environment variable
 	$databaseUrl = getenv("JAWSDB_URL");
 
@@ -67,24 +70,22 @@
 	$result = $mysqli->query($query);
 	$counter = 0;
 
-	$maxAttempts = 10;
-	$attempts = 0;
-
-	// Keep trying until the table is found or maxAttempts is reached
-	while ($attempts < $maxAttempts) {
-		$result = mysqli_query($mysqli, 'SELECT 1 FROM projects LIMIT 1');
-
-		if ($result !== false) {
-			echo 'Table "projects" exists.';
-			break;
-		}
-
-		sleep(1); // Wait for 1 second before retrying
-		$attempts++;
+	if ($mysqli->connect_error) {
+		die('Connect Error: ' . $mysqli->connect_error);
+	} else {
+		echo 'Connected successfully';
 	}
 
-	while($record = mysqli_fetch_assoc($result))
-	{
+	$checkTableQuery = 'SHOW TABLES LIKE "projects"';
+	$result = $mysqli->query($checkTableQuery);
+
+	if ($result->num_rows > 0) {
+		echo 'Table "projects" exists.';
+	} else {
+		echo 'Table "projects" does not exist.';
+	}
+
+	while ($record = mysqli_fetch_assoc($result)) {
 		echo '<div class="extra-space"></div>';
 
 		// Determine the CSS class based on the counter
@@ -92,22 +93,23 @@
 
 		// Output the container with the dynamic CSS class
 		echo '<div class="' . $cssClass . '">';
-			//displaying respective picture on left side of screen if even class
-			if($cssClass == 'even-class'){
-					echo'<img src="./images/'. $counter . '.webp" class="even-image"/>';
-			}
-			echo '<h2 class="project-title">' . $record['title'] . '</h2>';
-			echo '<h3 class="skills">' . $record['skills'] . '</h3>';
-			echo '<p class="desc">' . $record['description'] . '</p>';
-			
-			if($cssClass == 'odd-class'){
-				echo'<img src="./images/'. $counter . '.webp" class="odd-image"/>';
-			}
+		//displaying respective picture on left side of screen if even class
+		if ($cssClass == 'even-class') {
+			echo '<img src="./images/' . $counter . '.webp" class="even-image"/>';
+		}
+		echo '<h2 class="project-title">' . $record['title'] . '</h2>';
+		echo '<h3 class="skills">' . $record['skills'] . '</h3>';
+		echo '<p class="desc">' . $record['description'] . '</p>';
+
+		if ($cssClass == 'odd-class') {
+			echo '<img src="./images/' . $counter . '.webp" class="odd-image"/>';
+		}
 		echo '</div>';
-	
+
 		// Increment the counter for the next iteration
 		$counter++;
 	}
+
 	?>
 	<div class="extra-space"></div>
 </body>
