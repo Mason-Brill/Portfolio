@@ -9,6 +9,11 @@
 	}
 }
 
+* {
+	background-color: black;
+	z-index: -2;
+}
+
 body, html {
 	margin: 0%;
 	padding: 0%;
@@ -17,7 +22,6 @@ body, html {
 	font-family: "Roboto", sans-serif;
 	font-weight: 600;
 	font-style: normal;
-	background-color: black;
 }
 
 .even-image {
