@@ -48,20 +48,20 @@
 
 	<?php
 	// Get the database URL from the environment variable
-	$databaseUrl = getenv("DATABASE_URL");
+	$databaseUrl = getenv("JAWSDB_URL");
 
 	// Parse the URL
 	$dbUrl = parse_url($databaseUrl);
 
 	// Extract the connection details
-	$host = $dbUrl["host"];
-	$user = $dbUrl["user"];
-	$pass = $dbUrl["pass"];
-	$dbname = substr($dbUrl["path"], 1);  // Remove leading slash
+	$host = $dbUrl["host"] ?? '';
+	$user = $dbUrl["user"] ?? '';
+	$pass = $dbUrl["pass"] ?? '';
+	$dbname = substr($dbUrl["path"], 1) ?? '';  // Remove leading slash
 
 	// Use these details to connect to the MySQL database
 	$mysqli = new mysqli($host, $user, $pass, $dbname);
-
+	
 	if (!$connect) {
 		die('Connect Error: ' . mysqli_connect_error());
 	} else {
