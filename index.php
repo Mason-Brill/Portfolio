@@ -32,11 +32,6 @@
 		field.
 	    </p>
 	  </div>
-	  <?php
-		$imagePath = __DIR__ . '/images/Mason.Webp';
-		echo "Image Path: $imagePath";
-		?>
-
 	  <img src="https://masons-portfolio-ec4043d216a7.herokuapp.com/images/Mason.webp" class="me"/>
 
 	  <div class="contact-container">
