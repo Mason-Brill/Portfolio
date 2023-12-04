@@ -32,7 +32,13 @@
 		field.
 	    </p>
 	  </div>
-	  <img src="./images/Mason.Webp" class="me"/>
+	  <?php
+		$imagePath = __DIR__ . '/images/Mason.Webp';
+		echo "Image Path: $imagePath";
+		?>
+
+	  <img src="<?= __DIR__ ?>/images/Mason.Webp" class="me"/>
+	  
 	  <div class="contact-container">
 		<h1 class="heading-left">Contact Me</h1>
 		    <p class="Email">
