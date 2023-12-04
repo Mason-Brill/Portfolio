@@ -4,8 +4,6 @@ FROM mysql:latest
 # Install the MySQL extension
 RUN docker-php-ext-install mysqli
 
-# Copy application files
-COPY . /var/www/html
 
 # Set environment variables
 ENV MYSQL_DATABASE lamp_docker
