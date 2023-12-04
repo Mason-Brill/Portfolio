@@ -16,6 +16,13 @@
 
 *:not(body, html, .background) {
     z-index: 1;
+	margin: 0%;
+	padding: 0%;
+	color: white;
+	background-color: transparent;
+	font-family: "Roboto", sans-serif;
+	font-weight: 600;
+	font-style: normal;
 }
 
 body, html {
@@ -25,7 +32,7 @@ body, html {
     z-index: -1;
 }
 
-body, html {
+/* body, html {
 	margin: 0%;
 	padding: 0%;
 	color: white;
@@ -34,7 +41,7 @@ body, html {
 	font-family: "Roboto", sans-serif;
 	font-weight: 600;
 	font-style: normal;
-}
+} */
 
 .even-image {
 	width: 40vw;
