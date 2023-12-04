@@ -63,19 +63,26 @@
 	$pass = $dbUrl["pass"];
 	$dbname = substr($dbUrl["path"], 1);  // Remove leading slash
 
-	// Use these details to connect to the MySQL database
-	$mysqli = new mysqli($host, $user, $pass, $dbname);
+	// Maximum number of attempts to check MySQL availability
+	$maxAttempts = 30;
+	$attempts = 0;
 
-	$query = 'SELECT * FROM projects';
-	$result = $mysqli->query($query);
-	$counter = 0;
+	// Wait for MySQL to be ready
+	while ($attempts < $maxAttempts) {
+		$mysqli = @new mysqli($host, $user, $pass, $dbname);
 
-	if ($mysqli->connect_error) {
-		die('Connect Error: ' . $mysqli->connect_error);
-	} else {
-		echo 'Connected successfully';
+		// Check if the connection was successful
+		if ($mysqli->connect_error) {
+			echo "Connection failed: " . $mysqli->connect_error;
+			sleep(1);
+			$attempts++;
+		} else {
+			echo "Connected successfully";
+			break;
+		}
 	}
 
+	// Check if the "projects" table exists
 	$checkTableQuery = 'SHOW TABLES LIKE "projects"';
 	$result = $mysqli->query($checkTableQuery);
 
@@ -84,6 +91,11 @@
 	} else {
 		echo 'Table "projects" does not exist.';
 	}
+
+	// Now you can proceed with your regular queries
+	$query = 'SELECT * FROM projects';
+	$result = $mysqli->query($query);
+	$counter = 0;
 
 	while ($record = mysqli_fetch_assoc($result)) {
 		echo '<div class="extra-space"></div>';
