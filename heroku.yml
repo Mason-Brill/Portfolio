@@ -1,4 +1,3 @@
 build:
   docker:
-    db: Dockerfile.db
     phpmyadmin: Dockerfile.phpmyadmin
