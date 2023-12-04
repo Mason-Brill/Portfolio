@@ -11,14 +11,14 @@
 
 * {
 	background-color: black;
+	z-index: 0;
 }
 
 body, html {
 	margin: 0%;
 	padding: 0%;
 	color: white;
-	background-color: none;
-	z-index: 0;
+	z-index: 2;
 	font-family: "Roboto", sans-serif;
 	font-weight: 600;
 	font-style: normal;
@@ -216,5 +216,5 @@ body, html {
 	bottom: 0%;
 	width: 100vw;
 	height: 100vh;
-	z-index: -1;
+	z-index: 1;
 }
