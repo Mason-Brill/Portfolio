@@ -1,50 +1,5 @@
 build:
   docker:
-    db:
-      image: mysql:latest
-      environment:
-        MYSQL_DATABASE: lamp_docker
-        MYSQL_USER: lamp_docker
-        MYSQL_PASSWORD: PixelDoctor123!
-      volumes:
-        - ./db:/docker-entrypoint-initdb.d
-        - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      networks:
-        lamp-docker:
-          ipv4_address: 172.19.0.2
-
-    www:
-      depends_on:
-        - db
-      build:
-        context: .
-        dockerfile: Dockerfile
-      volumes:
-        - "./:/var/www/html"
-      ports:
-        - "8080:80"
-        - "443:443"
-      networks:
-        lamp-docker:
-          ipv4_address: 172.19.0.3  # Specify the desired IP address for www container
-
-    phpmyadmin:
-      depends_on:
-        - db
-      image: phpmyadmin/phpmyadmin
-      ports:
-        - "8001:80"
-      environment:
-        - PMA_HOST=db
-        - PMA_PORT=3306
-      networks:
-        lamp-docker:
-          ipv4_address: 172.19.0.4
-
-networks:
-  lamp-docker:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.19.0.0/24
+    db: Dockerfile.db
+    web: Dockerfile.www
+    phpmyadmin: Dockerfile.phpmyadmin
