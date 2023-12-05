@@ -108,7 +108,7 @@ if ($result->num_rows > 0) {
                 echo '<img src="./images/' . $counter . '.webp" class="even-image"/>';
             }
             if($record['title'] == "Pin The Bay"){
-				echo '<h2><a href="https://www.pinthebay.com/">Pin The Bay</a></h2>';
+				echo '<h2><a href="https://www.pinthebay.com/" target="_blank">Pin The Bay</a></h2>';
 			}
 			else{
 				echo '<h2 class ="title">'. $record['title'] . '</h2>';
