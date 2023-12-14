@@ -107,8 +107,11 @@ if ($result->num_rows > 0) {
             if ($cssClass == 'even-class') {
                 echo '<img src="./images/' . $counter . '.webp" class="even-image"/>';
             }
-            if($record['title'] == "Pin The Bay"){
+            if($record['title'] == "pinthebay.com"){
 				echo '<h2><a href="https://www.pinthebay.com/" target="_blank">Pin The Bay</a></h2>';
+			}
+			elseif($record['title'] == "empowertampa.com"){
+				echo '<h2><a href="https://www.empowertampa.com/" target="_blank">empowertampa.com</a></h2>';
 			}
 			else{
 				echo '<h2 class ="title">'. $record['title'] . '</h2>';
