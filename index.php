@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+	<!-- linking styles -->
 	<link rel="stylesheet" href="./index.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -10,6 +11,7 @@
 
 	<h1 class="intro">Welcome!</h1>
 
+	<!-- first row of webpage, flexbox, welcome container -->
 	<div class="welcome-container">
 	  <div class="welcome-left">
 	    <h1 class="heading-left">I am Mason Brill</h1>
@@ -32,8 +34,11 @@
 		field.
 	    </p>
 	  </div>
+
+	  <!-- picture of me -->
 	  <img src="https://masons-portfolio-ec4043d216a7.herokuapp.com/images/Mason.webp" class="me"/>
 
+	  <!-- contact me container, flexbox -->
 	  <div class="contact-container">
 		<h1 class="heading-left">Contact Me</h1>
 		    <p class="Email">
@@ -68,12 +73,6 @@
 	$result = $mysqli->query($query);
 	$counter = 0;
 
-	// if ($mysqli->connect_error) {
-	// 	die('Connect Error: ' . $mysqli->connect_error);
-	// } else {
-	// 	echo 'Connected successfully';
-	// }
-
 	// Query to check if the "projects" table exists
 	$checkTableQuery = 'SHOW TABLES LIKE "projects"';
 	$result = $mysqli->query($checkTableQuery);
@@ -92,11 +91,6 @@ if ($result->num_rows > 0) {
         // Iterate through all records
         while ($record = $result->fetch_assoc()) {
             echo '<div class="extra-space"></div>';
-            
-            // // Iterate through all indexes in $record
-            // foreach ($record as $key => $value) {
-            //     echo $key . ': ' . $value . '<br>';
-            // }
 
             // Determine the CSS class based on the counter
             $cssClass = ($counter % 2 == 0) ? 'even-class' : 'odd-class';
@@ -107,6 +101,7 @@ if ($result->num_rows > 0) {
             if ($cssClass == 'even-class') {
                 echo '<img src="./images/' . $counter . '.webp" class="even-image"/>';
             }
+	    //adding styles for specific projects
             if($record['title'] == "pinthebay.com"){
 				echo '<h2><a href="https://www.pinthebay.com/" target="_blank">Pin The Bay</a></h2>';
 			}
@@ -117,6 +112,7 @@ if ($result->num_rows > 0) {
 				echo '<h2 class ="title">'. $record['title'] . '</h2>';
 			}
 			echo '<h3 class="skills">' . $record['skills'] . '</h3>';
+	    //printing project description from database
             echo '<p class="desc">' . $record['description'] . '</p>';
 
             if ($cssClass == 'odd-class') {
