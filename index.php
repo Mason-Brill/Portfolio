@@ -109,7 +109,7 @@ if ($result->num_rows > 0) {
 				echo '<h2><a href="https://www.empowertampa.com/" target="_blank">Empower Tampa</a></h2>';
 			}
 			elseif($record['title'] == "Deck of Masters"){
-				echo '<h2><a href="https://www.deckofmasters.com/">Deck of Masters</a></h2>';
+				echo '<h2><a href="https://www.deckofmasters.com/" target="_blank">Deck of Masters</a></h2>';
 			}
 			else{
 				echo '<h2 class ="title">'. $record['title'] . '</h2>';
