@@ -119,7 +119,7 @@ if ($result->num_rows > 0) {
                 echo '<img src="./images/' . $counter . '.webp" class="odd-image"/>';
             }
             echo '</div>';
-			echo $counter
+			echo $counter;
             // Increment the counter for the next iteration
             $counter++;
         }
