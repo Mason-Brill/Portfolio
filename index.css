@@ -182,6 +182,7 @@ body, html {
 	height: 300px;
 	animation-name: intro;
 	animation-duration: 3s;
+	border-radius: 50%;
 }
 
 .extra-space {
