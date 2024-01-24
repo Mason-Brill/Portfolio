@@ -36,7 +36,7 @@
 	  </div>
 
 	  <!-- picture of me -->
-	  <img src="https://masons-portfolio-ec4043d216a7.herokuapp.com/images/Mason.webp" class="me"/>
+	  <img src="https://masons-portfolio-ec4043d216a7.herokuapp.com/images/Mason.JPG" class="me"/>
 
 	  <!-- contact me container, flexbox -->
 	  <div class="contact-container">
