@@ -61,8 +61,7 @@
 	<?php
 
 	// Get the database URL from the environment variable
-	// $databaseUrl = getenv("JAWSDB_URL");
-	$databaseUrl = "mysql://vkf6u91xyxwsacrg:ayqhmchv9tf1gswj@acw2033ndw0at1t7.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/cm5r7b1gsqo7cwst";
+	$databaseUrl = getenv("JAWSDB_URL");
 
 	// Parse the URL
 	$dbUrl = parse_url($databaseUrl);
