@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <head>
 	<!-- linking styles -->
-	<link rel="stylesheet" href="./index.css">
+	<link rel="stylesheet" href="./index2.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 </head>
 <body>
-
 	<img class="background" src="background.svg" alt="space"/>
 
 	<h1 class="intro">Welcome!</h1>
@@ -15,24 +14,25 @@
 	<div class="welcome-container">
 	  <div class="welcome-left">
 	    <h1 class="heading-left">I am Mason Brill</h1>
-	    <p class="text-left">
-		I'm a versatile front-end engineer ready to
-		complete any task. I have relavent expierence with
-		the MERN and LAMP web stacks along with related
-		technologies. Ever since I was young I have always
-		had a curiosity for technology. I always wanted to
-		know what was going on behind the scenes. What made
-		computers tick? How was I able to play incredible
-		video games? How can these computers display graphics
-		on the screen? These are the questions I asked myself
-		and was determined to find the answer to. This is
-		what lead me to my pursuit of a degree in computer
-		science. I also took personal endevours to discover
-		topics I wanted to find answers to. Now I can
-		confidently say I am finding those answers and
-		the journey will never stop in this ever-changing
-		field.
-	    </p>
+		<p class="text-left">
+			I am a versatile software engineer with proficient
+			frontend expierence. I have worked with a wide range
+			of technologies which includes the MERN, LAMP, and FREMP
+			stacks. I have also worked with just about every mainstream
+			programming language such as python, java, javascript, C,
+			and more. Ever since I was young I have always
+			had a curiosity for technology. I always wanted to
+			know what was going on behind the scenes. What made
+			computers tick? How was I able to play incredible
+			video games? How can these computers display graphics
+			on the screen? These are the questions I asked myself
+			and was determined to find the answer to. This is
+			what lead me to my pursuit of a degree in computer
+			science. I also took personal endevours to discover
+			topics I wanted to find answers to. I learn something
+			new everyday and the journey will never stop in this
+			ever-changing field.
+		</p>
 	  </div>
 
 	  <!-- picture of me -->
@@ -41,21 +41,28 @@
 	  <!-- contact me container, flexbox -->
 	  <div class="contact-container">
 		<h1 class="heading-left">Contact Me</h1>
-		    <p class="Email">
-			mason.brill@spartans.ut.edu
-			masonjamesbrill@yahoo.com
-			</p>
-		<h1 class="heading-left">GitHub</h1>
-		    <p class="Email">
-			<a href="https://github.com/Mason-Brill" target="_blank">https://github.com/Mason-Brill</a>
-			</p>
+		<p class="Email">
+		mason.brill@spartans.ut.edu
+		masonjamesbrill@yahoo.com
+		</p>
+
+		<p class="Email">
+		<a class="Email" href="https://www.linkedin.com/in/mason-brill-9218712a4" target="_blank">Linkedin</a>
+		</p>
+
+		<p class="Email">
+		<a class="Email" href="https://github.com/Mason-Brill" target="_blank">GitHub</a>
+		</p>
 	  </div>
 	</div>
+
+	<h1 class="intro">Employment</h1>
 
 	<?php
 
 	// Get the database URL from the environment variable
-	$databaseUrl = getenv("JAWSDB_URL");
+	// $databaseUrl = getenv("JAWSDB_URL");
+	$databaseUrl = "mysql://vkf6u91xyxwsacrg:ayqhmchv9tf1gswj@acw2033ndw0at1t7.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/cm5r7b1gsqo7cwst";
 
 	// Parse the URL
 	$dbUrl = parse_url($databaseUrl);
@@ -92,6 +99,10 @@ if ($result->num_rows > 0) {
         while ($record = $result->fetch_assoc()) {
             echo '<div class="extra-space"></div>';
 
+			if($counter == 3){
+				echo '<h1 class="intro">Projects</h1>';
+			}
+
             // Determine the CSS class based on the counter
             $cssClass = ($counter % 2 == 0) ? 'even-class' : 'odd-class';
 
@@ -110,6 +121,9 @@ if ($result->num_rows > 0) {
 			}
 			elseif($record['title'] == "Deck of Masters"){
 				echo '<h2><a href="https://www.deckofmasters.com/" target="_blank">Deck of Masters</a></h2>';
+			}
+			elseif($record['title'] == "Nightly Reel"){
+				echo '<h2><a href="https://www.nightlyreel.com/" target="_blank">Nightly Reel</a></h2>';
 			}
 			else{
 				echo '<h2 class ="title">'. $record['title'] . '</h2>';

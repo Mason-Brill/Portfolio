@@ -20,7 +20,7 @@
 	padding: 0%;
 	color: white;
 	background-color: transparent;
-	font-family: "Roboto", sans-serif;
+	font-family: "Nunito";
 	font-weight: 600;
 	font-style: normal;
 }
@@ -117,7 +117,7 @@ body, html {
 	animation-duration: 3s;
 	text-align: center;
 	font-family: "Nunito";
-	font-size: 72px;
+	font-size: 84px;
 	margin-bottom: 0%;
 	margin-top: 2%;
 }
@@ -140,6 +140,7 @@ body, html {
 }
 
 .Email {
+	font-size: 16pt;
 	text-align: center;
 	margin: 0px;
 	margin-block-start: 0%;
@@ -165,6 +166,7 @@ body, html {
 
 .heading-left {
 	text-align: center;
+	font-size: 32pt;
 	margin-bottom: 0px;
 	margin-top: 0px;
 	animation-name: intro;
