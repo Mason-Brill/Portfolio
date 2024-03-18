@@ -101,6 +101,7 @@ if ($result->num_rows > 0) {
 
 			if($counter == 3){
 				echo '<h1 class="intro">Projects</h1>';
+				echo '<div class="extra-space"></div>';
 			}
 
             // Determine the CSS class based on the counter
